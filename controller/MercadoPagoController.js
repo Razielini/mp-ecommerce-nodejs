@@ -36,7 +36,7 @@ class MercadoPagoController {
         body += chunk.toString();
       });
       req.on('end', () => {
-        console.log(body, 'webhook response');
+        console.log('WEBHOOK END', body);
         res.end('ok');
       });
     }
@@ -50,6 +50,7 @@ class MercadoPagoController {
         body += chunk.toString();
       });
       req.on('end', () => {
+        console.log('NOTIFICATION END', body);
         res.end('ok');
       });
     }

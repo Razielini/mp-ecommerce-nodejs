@@ -72,16 +72,17 @@ class MercadoPagoService {
         default_installments: 6
       },
       back_urls: {
-        success: this.env + '/success',
-        pending: this.env + '/pending',
-        failure: this.env + '/failure'
+        success: this.env + 'success',
+        pending: this.env + 'pending',
+        failure: this.env + 'failure'
       },
-      notification_url: this.env + '/webhook',
+      notification_url: this.env + 'webhook',
       auto_return: 'approved'
     };
 
     try {
       const res = await mercadopago.preferences.create(preferences);
+      console.log(res.body);
       return res.body;
     } catch (e) {
       console.log(e);
